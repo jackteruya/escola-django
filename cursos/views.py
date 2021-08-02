@@ -74,6 +74,7 @@ class AvaliacaoViewSet(viewsets.ModelViewSet):
     serializer_class = AvaliacaoSerializer
 """
 
+
 class AvaliacaoViewSet(
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
@@ -84,5 +85,3 @@ class AvaliacaoViewSet(
    ):
     queryset = Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
-
-
