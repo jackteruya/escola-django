@@ -144,10 +144,12 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 2,
     'DEFAULT_THORTTLE_CLASSES': (
         'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottling'
+        'rest_framework.throttling.UserRateThrottling',
+        'rest_framework.throttling.PasswordRateThrottling'
     ),
     'DEFAULT_THROTTLE_RATES': {
         'anon': '0/day',
-        'user': '1000/day'
+        'user': '1000/day',
+        'password': '3/day'
     }
 }
