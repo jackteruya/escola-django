@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework.authtoken.views import obtain_auth_token
+
 from cursos.urls import router
 
 urlpatterns = [
@@ -23,4 +25,5 @@ urlpatterns = [
     path('api/v2/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
+    path('token/obter/', obtain_auth_token, name='token-obter'),
 ]
