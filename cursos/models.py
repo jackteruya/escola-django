@@ -1,5 +1,7 @@
 from django.db import models
 
+from authentication.models import Usuario
+
 
 class Base(models.Model):
     criacao = models.DateTimeField(auto_now_add=True)
@@ -13,6 +15,7 @@ class Base(models.Model):
 class Curso(Base):
     titulo = models.CharField(max_length=255)
     url = models.URLField(unique=True)
+    professor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Curso'
@@ -25,6 +28,7 @@ class Curso(Base):
 
 class Avaliacao(Base):
     curso = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
+    # name = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     nome = models.CharField(max_length=255)
     email = models.EmailField()
     comentario = models.TextField(blank=True, default='')
